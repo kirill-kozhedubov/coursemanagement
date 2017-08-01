@@ -1,0 +1,33 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+
+        <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+            <property name="db">
+                <value>hibernate.properties</value>
+            </property>
+        </bean>
+
+        <property name="hibernate.dialect">${db.dialect}</property>
+        <property name="hibernate.connection.driver_class">${db.driver}</property>
+        <property name="hibernate.connection.url">${db.url}</property>
+        <property name="hibernate.connection.username">${db.username}</property>
+        <property name="hibernate.connection.password">${db.password}</property>
+        <property name="connection.pool_size">${db.pool_size}</property>
+        <property name="current_session_context_class">${db.current_session_context_class}</property>
+        <property name="hibernate.show_sql">${db.show_sql}</property>
+        <property name="hibernate.cache.provider_class">${db.provider_class}</property>
+        <property name="hibernate.cache.use_second_level_cache">${db.use_second_level_cache}</property>
+        <property name="hibernate.cache.use_query_cache">${db.use_query_cache}</property>
+        <property name="hibernate.hbm2ddl.auto">${db.hbm2ddl_auto}</property>
+        <property name="hibernate.hbm2ddl.import_files">${db.import_files}</property>
+
+
+        <mapping class="iq.ven.cms.models.entity.UserEntity"/>
+
+
+    </session-factory>
+</hibernate-configuration>
